@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "summary"
+version = "0.1.0"
+description = "Summary output from OWASP dependency-check JSON reports"
+authors = ["Louis Cailliot"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^1.9.0"
+pytest = "^7.1.1"
+pytest-cov = "^3.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+summary = "summary.main:run"

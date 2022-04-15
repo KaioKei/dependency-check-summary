@@ -1,0 +1,652 @@
+{
+	"Golang errors": {},
+	"Issues": [
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "118",
+				"url": "https://cwe.mitre.org/data/definitions/118.html"
+			},
+			"rule_id": "G601",
+			"details": "Implicit memory aliasing in for loop.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-list.go",
+			"code": "74: \t\tfor index, service := range services.Items {\n75: \t\t\tlist[index] = resources.ServiceToARD(\u0026service)\n76: \t\t}\n",
+			"line": "75",
+			"column": "41",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "MEDIUM",
+			"cwe": {
+				"id": "118",
+				"url": "https://cwe.mitre.org/data/definitions/118.html"
+			},
+			"rule_id": "G601",
+			"details": "Implicit memory aliasing in for loop.",
+			"file": "/home/kaio/Applications/turandot/turandot/client/wait.go",
+			"code": "34: \t\t\t\t\t\tif condition.Status == core.ConditionTrue {\n35: \t\t\t\t\t\t\tpod = \u0026pod_\n36: \t\t\t\t\t\t\treturn true, nil\n",
+			"line": "35",
+			"column": "14",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G307",
+			"details": "Deferring unsafe method \"Close\" on type \"*os.File\"",
+			"file": "/home/kaio/Applications/turandot/turandot/controller/tosca.go",
+			"code": "23: \tif file, err := format.OpenFileForWrite(cloutPath); err == nil {\n24: \t\tdefer file.Close()\n25: \t\tif err := CompileTOSCA(serviceTemplateURL, inputs_, file, urlContext); err == nil {\n",
+			"line": "24",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "MEDIUM",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G307",
+			"details": "Deferring unsafe method \"Close\" on type \"*os.File\"",
+			"file": "/home/kaio/Applications/turandot/turandot/controller/clout.go",
+			"code": "54: \tif file, err := format.OpenFileForWrite(cloutPath); err == nil {\n55: \t\tdefer file.Close()\n56: \t\tif _, err := file.WriteString(yaml); err == nil {\n",
+			"line": "55",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/template-list.go",
+			"code": "78: \t\t}\n79: \t\tformatpkg.Print(list, format, terminal.Stdout, strict, pretty)\n80: \t}\n",
+			"line": "79",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/template-list.go",
+			"code": "60: \t\t\tif serviceTemplateName, ok := turandot.ServiceTemplateNameForRegistryImageName(imageName); ok {\n61: \t\t\t\tterminal.Println(serviceTemplateName)\n62: \t\t\t}\n",
+			"line": "61",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-output.go",
+			"code": "34: \t\t\t// TODO: support output in various formats\n35: \t\t\tterminal.Println(output)\n36: \t\t\treturn\n",
+			"line": "35",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-mode.go",
+			"code": "31: \tutil.FailOnError(err)\n32: \tterminal.Println(service.Status.Mode)\n33: }\n",
+			"line": "32",
+			"column": "2",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-list.go",
+			"code": "76: \t\t}\n77: \t\tformatpkg.Print(list, format, terminal.Stdout, strict, pretty)\n78: \t}\n",
+			"line": "77",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-list.go",
+			"code": "68: \t\tfor _, service := range services.Items {\n69: \t\t\tterminal.Println(service.Name)\n70: \t\t}\n",
+			"line": "69",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "93: \t\t\t\tif nodeState.Message != \"\" {\n94: \t\t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Message\"), terminal.Stylize.Value(nodeState.Message))\n95: \t\t\t\t}\n",
+			"line": "94",
+			"column": "6",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "91: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Mode\"), terminal.Stylize.Value(nodeState.Mode))\n92: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"State\"), terminal.Stylize.Value(string(nodeState.State)))\n93: \t\t\t\tif nodeState.Message != \"\" {\n",
+			"line": "92",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "90: \t\t\t\tterminal.Printf(\"  %s:\\n\", terminal.Stylize.Name(node))\n91: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Mode\"), terminal.Stylize.Value(nodeState.Mode))\n92: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"State\"), terminal.Stylize.Value(string(nodeState.State)))\n",
+			"line": "91",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "89: \t\t\tfor node, nodeState := range service.Status.NodeStates {\n90: \t\t\t\tterminal.Printf(\"  %s:\\n\", terminal.Stylize.Name(node))\n91: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Mode\"), terminal.Stylize.Value(nodeState.Mode))\n",
+			"line": "90",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "87: \t\tif service.Status.NodeStates != nil {\n88: \t\t\tterminal.Printf(\"%s:\\n\", terminal.Stylize.TypeName(\"NodeStates\"))\n89: \t\t\tfor node, nodeState := range service.Status.NodeStates {\n",
+			"line": "88",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "84: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"CloutHash\"), terminal.Stylize.Value(service.Status.CloutHash))\n85: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"Mode\"), terminal.Stylize.Value(service.Status.Mode))\n86: \n",
+			"line": "85",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "83: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"CloutPath\"), terminal.Stylize.Value(service.Status.CloutPath))\n84: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"CloutHash\"), terminal.Stylize.Value(service.Status.CloutHash))\n85: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"Mode\"), terminal.Stylize.Value(service.Status.Mode))\n",
+			"line": "84",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "82: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"InstantiationState\"), terminal.Stylize.Value(string(service.Status.InstantiationState)))\n83: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"CloutPath\"), terminal.Stylize.Value(service.Status.CloutPath))\n84: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"CloutHash\"), terminal.Stylize.Value(service.Status.CloutHash))\n",
+			"line": "83",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "81: \n82: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"InstantiationState\"), terminal.Stylize.Value(string(service.Status.InstantiationState)))\n83: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"CloutPath\"), terminal.Stylize.Value(service.Status.CloutPath))\n",
+			"line": "82",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "77: \t\t\tfor name, output := range service.Status.Outputs {\n78: \t\t\t\tterminal.Printf(\"  %s: %s\\n\", terminal.Stylize.Name(name), terminal.Stylize.Value(output))\n79: \t\t\t}\n",
+			"line": "78",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "75: \t\tif (service.Status.Outputs != nil) \u0026\u0026 (len(service.Status.Outputs) \u003e 0) {\n76: \t\t\tterminal.Printf(\"%s:\\n\", terminal.Stylize.TypeName(\"Outputs\"))\n77: \t\t\tfor name, output := range service.Status.Outputs {\n",
+			"line": "76",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "70: \t\t\tfor name, input := range service.Spec.Inputs {\n71: \t\t\t\tterminal.Printf(\"  %s: %s\\n\", terminal.Stylize.Name(name), terminal.Stylize.Value(input))\n72: \t\t\t}\n",
+			"line": "71",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "68: \t\tif (service.Spec.Inputs != nil) \u0026\u0026 (len(service.Spec.Inputs) \u003e 0) {\n69: \t\t\tterminal.Printf(\"%s:\\n\", terminal.Stylize.TypeName(\"Inputs\"))\n70: \t\t\tfor name, input := range service.Spec.Inputs {\n",
+			"line": "69",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "63: \t\t\tif service.Spec.ServiceTemplate.Indirect.Name != \"\" {\n64: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Name\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Indirect.Name))\n65: \t\t\t}\n",
+			"line": "64",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "60: \t\t\tif service.Spec.ServiceTemplate.Indirect.Registry != \"\" {\n61: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Registry\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Indirect.Registry))\n62: \t\t\t}\n",
+			"line": "61",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "57: \t\t\tif service.Spec.ServiceTemplate.Indirect.Namespace != \"\" {\n58: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"Namespace\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Indirect.Namespace))\n59: \t\t\t}\n",
+			"line": "58",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "55: \t\tif service.Spec.ServiceTemplate.Indirect != nil {\n56: \t\t\tterminal.Printf(\"  %s:\\n\", terminal.Stylize.TypeName(\"Indirect\"))\n57: \t\t\tif service.Spec.ServiceTemplate.Indirect.Namespace != \"\" {\n",
+			"line": "56",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "50: \t\t\tif service.Spec.ServiceTemplate.Direct.AuthSecret != \"\" {\n51: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"AuthSecret\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Direct.AuthSecret))\n52: \t\t\t}\n",
+			"line": "51",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "47: \t\t\tif service.Spec.ServiceTemplate.Direct.TLSSecretDataKey != \"\" {\n48: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"TLSSecretDataKey\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Direct.TLSSecretDataKey))\n49: \t\t\t}\n",
+			"line": "48",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "44: \t\t\tif service.Spec.ServiceTemplate.Direct.TLSSecret != \"\" {\n45: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"TLSSecret\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Direct.TLSSecret))\n46: \t\t\t}\n",
+			"line": "45",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "41: \t\t\tif service.Spec.ServiceTemplate.Direct.URL != \"\" {\n42: \t\t\t\tterminal.Printf(\"    %s: %s\\n\", terminal.Stylize.TypeName(\"URL\"), terminal.Stylize.Value(service.Spec.ServiceTemplate.Direct.URL))\n43: \t\t\t}\n",
+			"line": "42",
+			"column": "5",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "39: \t\tif service.Spec.ServiceTemplate.Direct != nil {\n40: \t\t\tterminal.Printf(\"  %s:\\n\", terminal.Stylize.TypeName(\"Direct\"))\n41: \t\t\tif service.Spec.ServiceTemplate.Direct.URL != \"\" {\n",
+			"line": "40",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "36: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"Name\"), terminal.Stylize.Value(service.Name))\n37: \t\tterminal.Printf(\"%s:\\n\", terminal.Stylize.TypeName(\"ServiceTemplate\"))\n38: \n",
+			"line": "37",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "35: \t} else {\n36: \t\tterminal.Printf(\"%s: %s\\n\", terminal.Stylize.TypeName(\"Name\"), terminal.Stylize.Value(service.Name))\n37: \t\tterminal.Printf(\"%s:\\n\", terminal.Stylize.TypeName(\"ServiceTemplate\"))\n",
+			"line": "36",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-describe.go",
+			"code": "33: \tif format != \"\" {\n34: \t\tformatpkg.Print(resources.ServiceToARD(service), format, terminal.Stdout, strict, pretty)\n35: \t} else {\n",
+			"line": "34",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/service-clout.go",
+			"code": "29: \n30: \tterminal.Println(clout)\n31: }\n",
+			"line": "30",
+			"column": "2",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/logs.go",
+			"code": "34: \t\t\t\tfor i := 0; i \u003c index; i++ {\n35: \t\t\t\t\treaders[i].Close()\n36: \t\t\t\t}\n",
+			"line": "35",
+			"column": "6",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/logs.go",
+			"code": "20: \tfor _, reader := range readers {\n21: \t\tio.Copy(terminalutil.Stdout, reader)\n22: \t}\n",
+			"line": "21",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/delegate-list.go",
+			"code": "55: \t\t}\n56: \t\tformatpkg.Print(list, format, terminal.Stdout, strict, pretty)\n57: \t}\n",
+			"line": "56",
+			"column": "3",
+			"nosec": false,
+			"suppressions": null
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"id": "703",
+				"url": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kaio/Applications/turandot/turandot/turandot/commands/delegate-list.go",
+			"code": "43: \t\tfor _, delegate := range delegates {\n44: \t\t\tterminal.Println(delegate)\n45: \t\t}\n",
+			"line": "44",
+			"column": "4",
+			"nosec": false,
+			"suppressions": null
+		}
+	],
+	"Stats": {
+		"files": 91,
+		"lines": 6468,
+		"nosec": 0,
+		"found": 40
+	},
+	"GosecVersion": "dev"
+}
